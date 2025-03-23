@@ -21,7 +21,7 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.orange[50],
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
         elevation: 0,
       ),
       body: Column(
@@ -31,7 +31,7 @@ class ResultPage extends StatelessWidget {
           Expanded(
             child: Center(
               child: Container(
-                child: Text(
+                child: const Text(
                   'Your Results',
                   style: kTitleTextStyle,
 
@@ -49,10 +49,19 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      result.toString(),
-                      style: kResultTextStyle,
-
-                    ),
+                        result.toString(),
+                        style:  TextStyle(
+                          color: result == 'OverWeight' 
+                            ? const Color(0xFFCC0000) 
+                            : result == 'Normal' 
+                              ? const Color(0xFF00CC41) 
+                              : const Color(0xFFCCBB00),
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+               
+                        
                     Text(
                       bmiResult,
                       style: kBMITextStyle,
@@ -74,10 +83,12 @@ class ResultPage extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: kBottomContainerHeight,
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.only(bottom: 10),
-              color: kBottomContainerColor,
-              child: Center(
+            margin: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: kBottomContainerColor,
+                  borderRadius: BorderRadius.circular(10)),
+              child: const Center(
 
                 child: Text('RE-Calculate',
                   style: TextStyle(fontWeight: FontWeight.bold,

@@ -4,8 +4,7 @@ import 'constants.dart';
 import 'result_page.dart';
 import  'calculator.dart';
 import 'reuseable_card.dart';
-
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum Gender{male, female}
 class InputPage extends StatefulWidget {
@@ -37,7 +36,7 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      colour: activeGender == Gender.male? kActiveCardColor:kInActiveCardColor,
+                      colour: activeGender == Gender.male? kMaleActiveCardColor:kMaleInActiveCardColor,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -45,7 +44,7 @@ class _InputPageState extends State<InputPage> {
                             // SizedBox(
                             //   height: 15,
                             // ),
-                            Text('MALE', style: kLabelTextStyle,)
+                            Text('MALE', style: kGenderTextStyle,)
                           ]
                       ),
                       onPress: (){
@@ -58,7 +57,7 @@ class _InputPageState extends State<InputPage> {
                   ),
                   Expanded(
                     child: ReusableCard(
-                      colour: activeGender == Gender.female? kActiveCardColor:kInActiveCardColor,
+                      colour: activeGender == Gender.female? kFemaleActiveCardColor:kFemaleInActiveCardColor,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -66,7 +65,7 @@ class _InputPageState extends State<InputPage> {
                             // SizedBox(
                             //   height: 15,
                             // ),
-                            Text('FEMALE', style: kLabelTextStyle,)
+                            Text('FEMALE', style: kGenderTextStyle,)
                           ]
                       ),
                       onPress: (){
@@ -159,35 +158,27 @@ class _InputPageState extends State<InputPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
 
-                              FloatingActionButton(onPressed: (){
-                                setState(() {
-                                weight--;
-                              });}, child: Icon(Icons.remove)),
 
-                              // RoundIconButton(
-                              //     icon: Icon(FontAwesomeIcons.minusCircle, color: Colors.white,),
-                              //     onTap: (){
-                              //       setState(() {
-                              //         weight--;
-                              //       });
-                              //     }
-                              // ),
+                                RoundIconButton(
+                                  icon: const Icon(FontAwesomeIcons.minus, color: Colors.white,),
+                                  onTap: (){
+                                    setState(() {
+                                      weight--;
+                                    });
+                                  }
+                              ),
                               SizedBox(
                                 width: 20,
                               ),
-                              FloatingActionButton(
-                                  onPressed: (){
-                                setState(() {
-                                  weight++;
-                                });}, child: Icon(Icons.add) ),
-                              // RoundIconButton(
-                              //     icon: Icon(FontAwesomeIcons.plus, color: Colors.white,),
-                              //     onTap: (){
-                              //       setState(() {
-                              //         weight++;
-                              //       });
-                              //     }
-                              // ),
+
+                              RoundIconButton(
+                                  icon: Icon(FontAwesomeIcons.plus, color: Colors.white,),
+                                  onTap: (){
+                                    setState(() {
+                                      weight++;
+                                    });
+                                  }
+                              ),
 
                             ],
                           )
@@ -217,35 +208,28 @@ class _InputPageState extends State<InputPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              FloatingActionButton(onPressed: (){
-                                setState(() {
-                                  age--;
-                                });}, child: Icon(Icons.remove) ),
 
-                              // RoundIconButton(
-                              //     icon: Icon(FontAwesomeIcons.minus, color: Colors.white,),
-                              //     onTap: (){
-                              //       setState(() {
-                              //         age--;
-                              //       });
-                              //     }
-                              // ),
+
+                                RoundIconButton(
+                                  icon: const Icon(FontAwesomeIcons.minus, color: Colors.white,),
+                                  onTap: (){
+                                    setState(() {
+                                      weight--;
+                                    });
+                                  }
+                              ),
                               SizedBox(
                                 width: 20,
                               ),
-                              FloatingActionButton(
-                                  onPressed: (){
+
+                              RoundIconButton(
+                                  icon: Icon(FontAwesomeIcons.plus, color: Colors.white,),
+                                  onTap: (){
                                     setState(() {
                                       age++;
-                                    });}, child: Icon(Icons.add) ),
-                              // RoundIconButton(
-                              //     icon: Icon(FontAwesomeIcons.plus, color: Colors.white,),
-                              //     onTap: (){
-                              //       setState(() {
-                              //         age++;
-                              //       });
-                              //     }
-                              // ),
+                                    });
+                                  }
+                              ),
 
                             ],
                           )
@@ -274,9 +258,11 @@ class _InputPageState extends State<InputPage> {
               child: Container(
                 width: double.infinity,
                 height: kBottomContainerHeight,
-                margin: EdgeInsets.only(top: 10),
-                padding: EdgeInsets.only(bottom: 10),
-                color: kBottomContainerColor,
+               margin: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: kBottomContainerColor,
+                  borderRadius: BorderRadius.circular(10)),
                 child: Center(
 
                   child: Text('Calculate',

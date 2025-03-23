@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 const kPrimaryColor = Color(0xFF022C43);
 
 //Card color
+
 const kActiveCardColor = Color(0xFF115173);
-const kInActiveCardColor = Color(0xFF053F5E);
+
+const kMaleActiveCardColor = Color.fromRGBO(26, 119, 169, 1);
+const kMaleInActiveCardColor = Color(0xFF115173);
+
+
+const kFemaleActiveCardColor = Color.fromRGBO(144, 8, 126, 1);
+const kFemaleInActiveCardColor = Color.fromRGBO(94, 5, 82, 1);
 
 const kButtonColor = Color(0xFF00A8CC);
 
@@ -20,9 +27,15 @@ const kLargeButtonTextStyle = TextStyle(
 
 const kNumberTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
 
+const kGenderTextStyle = TextStyle(
+  fontSize: 25,
+  color: Color(0xFFD8DAE9),
+  fontWeight: FontWeight.bold
+);
+
 const kLabelTextStyle = TextStyle(
-  fontSize: 18,
-  color: Color(0xFF8D8E98),
+  fontSize: 20,
+  color: Color(0xFFD8DAE9),
 );
 
 const kTitleTextStyle = TextStyle(
@@ -31,7 +44,7 @@ const kTitleTextStyle = TextStyle(
 );
 
 const kResultTextStyle = TextStyle(
-  color: Color(0xFF24D876),
+  color: Color.fromARGB(255, 28, 181, 97),
   fontSize: 22.0,
   fontWeight: FontWeight.bold,
 );
@@ -43,4 +56,5 @@ const kBMITextStyle = TextStyle(
 
 const kBodyTextStyle = TextStyle(
   fontSize: 22.0,
+  color: Colors.white
 );

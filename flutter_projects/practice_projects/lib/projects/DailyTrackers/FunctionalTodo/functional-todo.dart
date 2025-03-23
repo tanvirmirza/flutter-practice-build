@@ -29,7 +29,7 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
               ),
               actions: [
                 TextButton(
-                  child: Text('Cencel'),
+                  child: const Text('Cencel'),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -38,7 +38,7 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple.shade300,
                       foregroundColor: Colors.white,
-                      shape: StadiumBorder(),
+                      shape: const StadiumBorder(),
                     ),
                     onPressed: () {
                       if (taskController.text.trim().isNotEmpty) {
@@ -49,7 +49,7 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
                         }
                       }
                     },
-                    child: Text('Save'))
+                    child: const Text('Save'))
               ],
             ));
   }
@@ -90,21 +90,21 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Functional Todo'),
+        title: const Text('Functional Todo'),
       ),
       backgroundColor: Colors.deepPurple.shade50,
       body: Center(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: Container(
                 height: 80,
                 width: 250,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
-                    BoxShadow(blurRadius: 4, color: Colors.black12),
+                    const BoxShadow(blurRadius: 4, color: Colors.black12),
                   ],
                   color: Colors.white,
                 ),
@@ -114,20 +114,20 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Active',
                           style: TextStyle(
                               fontSize: 23, fontWeight: FontWeight.w500),
                         ),
                         Text(
                           activeTask.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 15),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 15, right: 15),
                       child: VerticalDivider(
                         indent: 10,
                         endIndent: 10,
@@ -137,14 +137,14 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Complete',
                           style: TextStyle(
                               fontSize: 23, fontWeight: FontWeight.w500),
                         ),
                         Text(
                           completedTask.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -161,7 +161,7 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
                   itemBuilder: (context, index) => Card(
                         child: ListTile(
                             leading: Checkbox(
-                              shape: CircleBorder(),
+                              shape: const CircleBorder(),
                               onChanged: (value) => toggleTaskStatus(index),
                               value: tasks[index]['completed'],
                             ),
@@ -177,16 +177,16 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
                             subtitle:
                                 Text(DateFormat.jm().format(DateTime.now())),
                             trailing: PopupMenuButton(
-                              icon: Icon(Icons.more_vert),
+                              icon: const Icon(Icons.more_vert),
                               itemBuilder: (context) => [
                                 PopupMenuItem(
                                   value: 'edit',
-                                  child: Text('Edit'),
+                                  child: const Text('Edit'),
                                   onTap: () => showTaskDialog(index: index),
                                 ),
                                 PopupMenuItem(
                                   value: 'delete',
-                                  child: Text('Delete'),
+                                  child: const Text('Delete'),
                                   onTap: () => deleteTask(index),
                                 ),
                               ],
@@ -200,7 +200,7 @@ class _FunctionalTodoState extends State<FunctionalTodo> {
         onPressed: () {
           showTaskDialog();
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
         ),
       ),

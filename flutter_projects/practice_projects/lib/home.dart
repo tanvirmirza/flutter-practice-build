@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'projects/DailyTrackers/FunctionalTodo/functional-todo.dart';
+import 'projects/Calculators/BMICalculator/input_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        
         title: "PRACTICE PROJECTS",
         theme: ThemeData(
           appBarTheme: AppBarTheme(
@@ -19,8 +20,8 @@ class HomePage extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.bold)),
         ),
-        home: Scaffold(
-          body: FunctionalTodo(),
+        home: const Scaffold(
+          body: InputPage(),
         ));
   }
 }
